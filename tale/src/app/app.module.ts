@@ -10,6 +10,8 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {UserService} from "./services/user.service";
 import {MeetingsService} from "./services/meetings.service";
+import {BackgroundGeolocation} from "@ionic-native/background-geolocation";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import {MeetingsService} from "./services/meetings.service";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -31,6 +34,7 @@ import {MeetingsService} from "./services/meetings.service";
     StatusBar,
     SplashScreen,
     UserService,
+    BackgroundGeolocation,
     MeetingsService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

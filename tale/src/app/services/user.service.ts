@@ -4,7 +4,7 @@ import {
   BackgroundGeolocationConfig,
   BackgroundGeolocationResponse
 } from '@ionic-native/background-geolocation';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class UserService {
@@ -21,7 +21,7 @@ export class UserService {
       userName: "Ironman",
       location: "49.010762, 8.408751",
       transitMode: "bicycling",
-      _id: "59d02440cacd07202107696a"
+      _id: "59d04d1c6805fc2701a4b783"
     };
 
     if ((typeof __this.backgroundGeolocation) !== undefined) {
@@ -51,6 +51,10 @@ export class UserService {
 
     // start fetching HTML5 location - as fallback
     setInterval(__this.getHtml5Location, 5000);
+
+    setTimeout(function () {
+      __this.putUser();
+    }, 2000)
   }
 
   public getUser(publishUserChange): void {
@@ -92,7 +96,19 @@ export class UserService {
     console.log("put user");
     // let headers = new Headers({'Content-Type': 'application/json'});
     // let options = new RequestOptions({headers: headers});
+
     let body = JSON.stringify(this.user);
+
+    console.log(body);
+
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+
+    this.http.put('http://139.162.130.38:1473/users', this.user, {headers: headers}).subscribe(data => {
+      // Read the result field from the JSON response.
+      console.log(data);
+    });
+
 
     // this.http.put("http://139.162.130.38:1473/users", JSON.stringify(body)).map(res => res.json()).subscribe(
     //   data => {

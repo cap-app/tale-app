@@ -57,7 +57,7 @@ export class UserService {
     }, 2000)
   }
 
-  public getUser(publishUserChange): void {
+  public getUser(): any {
     return this.user;
   }
 

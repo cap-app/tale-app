@@ -3,21 +3,40 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Your Meetings</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+
+  <!--<div *ngIf="selectedItem" padding>-->
+  <!--You navigated here from <b>{{selectedItem.title}}</b>-->
+  <!--</div>-->
+
+  <ion-card *ngFor="let meeting of meetings">
+
+    <ion-item (click)="itemTapped($event, meeting)">
+      <ion-icon name="{{meeting.icon}}" item-start large></ion-icon>
+      <h2>{{meeting.groupName}}</h2>
+      <p>{{meeting.street}}</p>
+    </ion-item>
+
+    <ion-item>
+      <p>
+        <span item-left>{{meeting.etaText}}</span>
+        <span item-left>(time left)</span>
+      </p>
+      <p>
+        <span item-left>{{meeting.etaUser}}</span>
+        <span item-left>(your ETA)</span>
+      </p>
+      <button ion-button icon-left clear item-end>
+        <ion-icon name="navigate"></ion-icon>
+        Start
+      </button>
+
+    </ion-item>
+
+  </ion-card>
+
 </ion-content>

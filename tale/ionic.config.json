@@ -1,0 +1,8 @@
+{
+  "name": "tale",
+  "app_id": "7db2b9f2",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

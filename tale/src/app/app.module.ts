@@ -3,7 +3,7 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import {MyApp} from './app.component';
-import {HomePage} from '../pages/home/home';
+import {ProfilePage} from '../pages/profile/profile';
 import {ListPage} from '../pages/list/list';
 
 import {StatusBar} from '@ionic-native/status-bar';
@@ -14,7 +14,7 @@ import {MeetingsService} from "./services/meetings.service";
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    ProfilePage,
     ListPage
   ],
   imports: [
@@ -24,7 +24,7 @@ import {MeetingsService} from "./services/meetings.service";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    ProfilePage,
     ListPage
   ],
   providers: [
